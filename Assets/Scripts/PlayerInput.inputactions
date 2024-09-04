@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "8ad4601f-a784-4cc0-b2e7-24c154a244f9",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -20,7 +20,7 @@
                     "id": "7ce5fcd2-970b-43cd-8414-1c00928db4a5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -37,7 +37,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Negative",
                     "id": "7bfb823f-0864-484e-9abf-3a9f5d34d84b",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -48,7 +48,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Positive",
                     "id": "d1ade7cf-ca82-42cd-9ad9-035d046a16de",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -70,7 +70,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Negative",
                     "id": "fb86a4c7-1f2e-4508-b040-756e9d285c05",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
@@ -81,7 +81,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Positive",
                     "id": "d0e57c99-f477-4fc6-9af6-7bc8304ab5ea",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
