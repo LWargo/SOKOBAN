@@ -13,11 +13,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     private bool isFacingRight = true;
+    private Vector3 spawnLoc;
+    public GameObject enemyPrefab;
     // Start is called before the first frame update
     void Start()
     {
         //Debug.Log("Hello world! " + speed);
         rb = GetComponent<Rigidbody2D>();
+        spawnLoc = transform.position;
     }
 
     // Update is called once per frame
@@ -68,5 +71,24 @@ public class PlayerMovement : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Enemy")) {
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Coin")) {
+            Destroy(other.gameObject);
+            //Make Enemy
+            Instantiate(enemyPrefab,spawnLoc,Quaternion.identity);
+            //StartCoroutine("");
+            //InvokeRepeating();
+        }
+        if (other.gameObject.CompareTag("Enemy")) {
+            transform.position = spawnLoc;
+        }
     }
 }
