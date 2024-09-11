@@ -225,6 +225,8 @@ GameObject:
   - component: {fileID: 441347933}
   - component: {fileID: 441347932}
   - component: {fileID: 441347931}
+  - component: {fileID: 441347934}
+  - component: {fileID: 441347935}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -344,6 +346,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441347934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441347930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2178ee5244394cfe893a1f09d722b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newVelo: {x: 0, y: 0}
+  ball: {fileID: 1969179286}
+--- !u!114 &441347935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441347930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 154010d8ecf6c47bcbf7c12cfb9e5033, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: AllActions
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1478631177
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +402,7 @@ GameObject:
   - component: {fileID: 1478631179}
   - component: {fileID: 1478631178}
   - component: {fileID: 1478631182}
+  - component: {fileID: 1478631183}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -372,7 +419,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1478631177}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e0325ff8af0c24971bfd2d719365d701, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -487,7 +534,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386057b8414bf47d4b5527cc39a2b3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1478631183}
+--- !u!95 &1478631183
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478631177}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cac464fff0638438faed944bbf73d623, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1969179286
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +571,7 @@ GameObject:
   - component: {fileID: 1969179291}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -626,7 +694,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: e0325ff8af0c24971bfd2d719365d701, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -649,6 +717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175f1c0bbc494f6eba5ab846484bff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  paddle: {fileID: 441347930}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

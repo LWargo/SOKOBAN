@@ -19,6 +19,9 @@ public class BlockBehavior : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        //Debug.Log("Hit");
+        if (hitsLeft <= 0) Destroy(gameObject);
         hitsLeft--;
+        anim.SetInteger("BlockHitsLeft",hitsLeft);
     }
 }
