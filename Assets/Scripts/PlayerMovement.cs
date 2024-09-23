@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     private Vector3 spawnLoc;
     public GameObject enemyPrefab;
+    private int score = 0;
+
+    public TMP_Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +32,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Debug.Log("Don't hate me! " + speed);
-        if(Input.GetKeyDown(KeyCode.D)) {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
             //Debug.Log("D pressed");
            // keysPressed.Add(KeyCode.D);
+           SceneManager.LoadScene(0);
         }
         if(Input.GetKeyUp(KeyCode.D)) {
             //keysPressed.Remove(KeyCode.D);
@@ -82,8 +88,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Coin")) {
             Destroy(other.gameObject);
+            ++score;
+            scoreText.text = "Score: " + score;
             //Make Enemy
-            Instantiate(enemyPrefab,spawnLoc,Quaternion.identity);
+            //Instantiate(enemyPrefab,spawnLoc,Quaternion.identity);
             //StartCoroutine("");
             //InvokeRepeating();
         }
